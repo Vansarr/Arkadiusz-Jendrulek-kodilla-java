@@ -1,13 +1,13 @@
-package com.kodilla.kodillacourse;
+package com.example.kodillatesting;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class KodillaCourseApplication {
+public class KodillaTestingApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(KodillaCourseApplication.class, args);
+        System.out.println("Moduł 6. Wprowadzenie to testowania oprogramowania");
     }
 
 }
