@@ -32,7 +32,6 @@ public int getFiguresQuantity () {
 }
 
 public void showFigures() {
-        figures.toArray();
         for (Shape figure : figures) {
             System.out.println(figure);
         }
