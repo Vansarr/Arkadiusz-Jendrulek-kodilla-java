@@ -30,31 +30,72 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testAddFigure() {
         //Given
-        List<Shape> theList = new ArrayList<>();
-        Shape square = new Square(5)
+        ShapeCollector collector = new ShapeCollector();
+        Shape square = new Square(5);
         //When
-        theList.addFigure(square);
+        collector.addFigure(square);
         //Then
+        Assertions.assertEquals(1, collector.getFiguresQuantity());
+    }
+
+    @Test
+    public void testRemoveFigureNotExisting() {
+        //Given
+        ShapeCollector collector = new ShapeCollector();
+        Shape square = new Square(5);
+        //When
+        boolean result = collector.removeFigure(square);
+        //Then
+        Assertions.assertFalse(result);
     }
 
     @Test
     public void testRemoveFigure() {
         //Given
+        ShapeCollector collector = new ShapeCollector();
+        Shape square = new Square(5);
+        collector.addFigure(square);
         //When
+        boolean result = collector.removeFigure(square);
         //Then
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void testGetFigureNotExisting() {
+        //Given
+        ShapeCollector collector = new ShapeCollector();
+        Shape square = new Square(5);
+        //When
+        Shape retrievedFigure = collector.getFigure(0);
+        //Then
+        Assertions.assertNotEquals(retrievedFigure, square);
     }
 
     @Test
     public void testGetFigure() {
         //Given
+        ShapeCollector collector = new ShapeCollector();
+        Shape square = new Square(5);
+        collector.addFigure(square);
         //When
+        Shape retrievedFigure = collector.getFigure(0);
         //Then
+        Assertions.assertEquals(square, retrievedFigure);
     }
 
     @Test
     public void testShowFigures() {
         //Given
+        ShapeCollector collector = new ShapeCollector(){
+            {
+                addFigure(new Square(5));
+                addFigure(new Triangle(5, 5));
+            }
+        };
         //When
+        collector.showFigures();
         //Then
+
     }
 }

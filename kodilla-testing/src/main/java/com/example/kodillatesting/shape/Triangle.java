@@ -26,4 +26,13 @@ public class Triangle implements Shape{
     public double getField() {
         return (base * height) / 2;
     }
+
+    @Override
+    public String toString() {
+        return "Triangle{" +
+                "base= " + base +
+                ", height= " + height +
+                ", field= " + getField() +
+                '}';
+    }
 }

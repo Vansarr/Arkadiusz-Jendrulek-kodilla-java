@@ -19,5 +19,14 @@ private int radius;
     @Override
     public double getField() {
         return radius * 3.14;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "radius= " + radius +
+                ", field= " + getField() +
+                '}';
     }
 }
