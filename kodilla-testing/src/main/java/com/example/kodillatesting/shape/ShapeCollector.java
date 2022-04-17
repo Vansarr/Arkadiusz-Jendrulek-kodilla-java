@@ -11,7 +11,6 @@ public class ShapeCollector {
 }
 
 public boolean removeFigure(Shape shape) {
-        //
     boolean result = false;
     if (figures.contains(shape)) {
         figures.remove(shape);
@@ -31,13 +30,15 @@ public int getFiguresQuantity () {
         return figures.size();
 }
 
-public void showFigures() {
+public String showFigures() {
         for (Shape figure : figures) {
             System.out.println(figure);
         }
+    return figures.toString();
 }
 
-
-
-
+    @Override
+    public String toString() {
+        return figures.toString();
+    }
 }

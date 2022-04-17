@@ -94,8 +94,9 @@ public class ShapeCollectorTestSuite {
             }
         };
         //When
-        collector.showFigures();
+        String shownFigures = collector.showFigures();
         //Then
+        Assertions.assertEquals(shownFigures, collector.toString());
 
     }
 }

@@ -14,10 +14,11 @@ public class KodillaTestingApplication {
     public static void main(String[] args) {
         ShapeCollector coll = new ShapeCollector(){{
             addFigure(new Square(5));
+            addFigure(new Square(6));
             addFigure(new Triangle(5, 5));
         }};
 
-        coll.showFigures();
+       coll.showFigures();
 
     }
 
