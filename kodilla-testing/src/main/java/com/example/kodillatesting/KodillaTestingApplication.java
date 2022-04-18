@@ -12,6 +12,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class KodillaTestingApplication {
 
     public static void main(String[] args) {
+        ShapeCollector collector = new ShapeCollector() {
+            {
+                addFigure(new Square(5));
+                addFigure(new Triangle(5, 5));
+            }
+        };
+
+        System.out.println(collector.showFigures());
 
     }
 }

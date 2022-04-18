@@ -111,8 +111,10 @@ public class ShapeCollectorTestSuite {
             };
             //When
             String shownFigures = collector.showFigures();
+            String expectedResult = "[Square{side= 5.0, field= 25.0}, " +
+                         "Triangle{base= 5.0, height= 5.0, field= 12.5}]";
             //Then
-            Assertions.assertEquals(shownFigures, collector.toString());
+            Assertions.assertEquals(shownFigures, expectedResult);
         }
     }
 }
