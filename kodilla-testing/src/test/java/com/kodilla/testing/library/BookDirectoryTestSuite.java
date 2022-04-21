@@ -83,7 +83,6 @@ public class BookDirectoryTestSuite {
     @Test
     void testListBooksWithConditionFragmentShorterThan3() {                          // [1]
         // Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);            // [2]
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);               // [3]
 
         // When
