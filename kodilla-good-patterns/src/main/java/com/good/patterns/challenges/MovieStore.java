@@ -1,7 +1,6 @@
 package com.good.patterns.challenges;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 class MovieStore {
 
