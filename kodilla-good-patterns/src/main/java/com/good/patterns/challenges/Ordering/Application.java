@@ -24,7 +24,5 @@ public class Application {
         ProductOrderService productOrderService = new ProductOrderService(emailService, textRepository);
 
         productOrderService.process(newOrder);
-
     }
-
 }

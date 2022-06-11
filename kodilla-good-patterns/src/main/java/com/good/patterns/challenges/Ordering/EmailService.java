@@ -9,5 +9,4 @@ public class EmailService implements InformationService {
                 "Witaj," + buyer.getName() + "!\n" +
                 "Twoje zamówienie zostało skompletowane i jest gotowe do wysyłki.");
     }
-
 }

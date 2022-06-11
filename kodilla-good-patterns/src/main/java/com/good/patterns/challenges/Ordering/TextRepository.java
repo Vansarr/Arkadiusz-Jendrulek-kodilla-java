@@ -24,6 +24,5 @@ public class TextRepository implements OrderRepository{
         } catch (IOException e) {
             System.out.println("Wystąpił błąd - nie udało się zapisać zamówienia.");
         }
-
     }
 }
