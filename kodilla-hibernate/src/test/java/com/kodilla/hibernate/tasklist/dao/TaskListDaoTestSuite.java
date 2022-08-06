@@ -16,9 +16,9 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 @SpringBootTest
 public class TaskListDaoTestSuite {
 
-    private static final String LISTNAME = "ListName";
     @Autowired
     private TaskListDao taskListDao;
+    private static final String LISTNAME = "ListName";
     private static final String DESCRIPTION = "Testing Task list";
 
     @Test

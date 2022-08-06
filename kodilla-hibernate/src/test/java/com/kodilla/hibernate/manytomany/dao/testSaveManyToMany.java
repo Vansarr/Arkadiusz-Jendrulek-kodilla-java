@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -13,6 +15,9 @@ class CompanyDaoTestSuite {
 
     @Autowired
     private CompanyDao companyDao;
+
+    @Autowired
+    private EmployeeDao employeeDao;
 
     @Test
     void testSaveManyToMany() {
@@ -51,12 +56,53 @@ class CompanyDaoTestSuite {
         assertNotEquals(0, greyMatterId);
 
         //CleanUp
-        //try {
-        //    companyDao.deleteById(softwareMachineId);
-        //    companyDao.deleteById(dataMaestersId);
-        //    companyDao.deleteById(greyMatterId);
-        //} catch (Exception e) {
-        //    //do nothing
-        //}
+        try {
+            companyDao.deleteById(softwareMachineId);
+            companyDao.deleteById(dataMaestersId);
+            companyDao.deleteById(greyMatterId);
+        } catch (Exception e) {
+            //do nothing
+        }
+
+    }
+
+    @Test
+    void testRetrieveEmployeesWithLastName() {
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+        Employee gregKovalsky = new Employee("Greg", "Kovalsky");
+
+        //When
+        employeeDao.save(johnSmith);
+        employeeDao.save(lindaKovalsky);
+        employeeDao.save(gregKovalsky);
+        List<Employee> kovalskies = employeeDao.retrieveEmployeesWithLastName("Kovalsky");
+
+        //Then
+        assertEquals(2, kovalskies.size());
+
+        //Cleanup
+        employeeDao.deleteAll();
+    }
+
+    @Test
+    void testRetrieveCompanyByFirstThreeLetters() {
+        //Given
+        Company softwareMachine = new Company("Software Machine");
+        Company greyMatter = new Company("Grey Matter");
+        Company greyHound = new Company("Grey Hound");
+
+        //When
+        companyDao.save(softwareMachine);
+        companyDao.save(greyHound);
+        companyDao.save(greyMatter);
+        List<Company> greys = companyDao.retrieveCompanyByFirstThreeLetters("gre");
+
+        //Then
+        assertEquals(2, greys.size());
+
+        //Cleanup
+        companyDao.deleteAll();
     }
 }
