@@ -16,6 +16,7 @@ class PizzaOrderTest {
         thePizza = new VegetableDecorator(thePizza);
         thePizza = new AdditionalCheeseDecorator(thePizza);
         System.out.println(thePizza.getDescription());
+        System.out.println(thePizza.getCost() + " zł");
         //When
         String description = thePizza.getDescription();
         //Then
